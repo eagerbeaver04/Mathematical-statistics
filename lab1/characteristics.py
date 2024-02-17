@@ -3,7 +3,7 @@ import numpy as np
 from IPython.display import display
 
 
-def print_characteristics(N: list):
+def print_characteristics(N: list) -> None:
     methods = [
         lambda n: np.random.normal(0.0, 1.0, n),
         lambda n: np.random.standard_cauchy(n),

@@ -3,7 +3,7 @@ from math import gamma
 import matplotlib.pyplot as plt
 
 
-def print_graphics(N: list):
+def print_graphics(N: list) -> None:
     # Normal distribution
     mu_normal = 0.0
     var_normal = 1.0
