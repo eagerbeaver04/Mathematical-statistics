@@ -29,8 +29,8 @@ def print_graphics(N: list) -> None:
 
     samples = [
         sample_normal,
-        [sample_cauchy[i][(np.abs(sample_cauchy[i]) <= 10)] for i in range(len(N))],  # to avoid outliers
-        [sample_student[i][(np.abs(sample_student[i]) <= 10)] for i in range(len(N))],  # to avoid outliers
+        sample_cauchy,
+        sample_student,
         sample_poisson,
         sample_uniform
     ]
@@ -76,4 +76,8 @@ def print_graphics(N: list) -> None:
             plt.title(f'n = {N[i]}')
             plt.xlabel('values')
             plt.ylabel('CDF values')
+            plt.yscale('linear')
+            if N[i] > 500 and names[j] == 'cauchy':
+                plt.yscale('log')
+                plt.ylabel('log of CDF values')
         plt.show()
