@@ -2,15 +2,12 @@ import numpy as np
 import pandas as pd
 import math
 import scipy
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def characteristics():
-    import numpy as np
-    import pandas as pd
-    import math
-    import scipy
-    import matplotlib.pyplot as plt
-    import seaborn as sns
+
     ns = np.array([20, 100])
     significance = 0.05
     confidence_level = 1 - significance / 2  # 0.975
@@ -33,11 +30,11 @@ def characteristics():
         chi_square_value_min = scipy.stats.chi2.ppf(1 - significance / 2, n)
         chi_square_value_max = scipy.stats.chi2.ppf(significance / 2, n)
 
-        mean_min = mean - dev * student_value / math.sqrt(n)
-        mean_max = mean + dev * student_value / math.sqrt(n)
+        mean_min = mean - dev * student_value / math.sqrt(n-1)
+        mean_max = mean + dev * student_value / math.sqrt(n-1)
 
-        dev_min = math.sqrt(n) * dev / math.sqrt(chi_square_value_min)
-        dev_max = math.sqrt(n) * dev / math.sqrt(chi_square_value_max)
+        dev_min = math.sqrt(n-1) * dev / math.sqrt(chi_square_value_min)
+        dev_max = math.sqrt(n-1) * dev / math.sqrt(chi_square_value_max)
 
         data['n'].append(n)
         data['mean_min'].append(mean_min)
