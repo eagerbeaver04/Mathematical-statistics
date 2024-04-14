@@ -16,7 +16,7 @@ def lab5():
         return np.random.default_rng().multivariate_normal(means, covs, n).T
 
     ns = np.array([20, 60, 100])
-    rhos = np.array([20, 0.5, 0.9])
+    rhos = np.array([0, 0.5, 0.9])
 
     for n in ns:
         for rho in rhos:
@@ -97,13 +97,13 @@ def lab5():
         x, y = multivariate_normal(0, 0, 1, 1, 0.9, 1000) * 0.9 + multivariate_normal(0, 0, 10, 10, -0.9,
                                                                                       1000) * 0.1
 
-    fig, ax = plt.subplots(1, 1)
-    ax.scatter(x, y, s=0.5)
+        fig, ax = plt.subplots(1, 1)
+        ax.scatter(x, y, s=0.5)
 
-    add_confidence_ellipse(x, y, ax, 1, edgecolor='red')
-    add_confidence_ellipse(x, y, ax, 2, edgecolor='fuchsia', linestyle='--')
-    add_confidence_ellipse(x, y, ax, 3, edgecolor='blue', linestyle=':')
+        add_confidence_ellipse(x, y, ax, 1, edgecolor='red')
+        add_confidence_ellipse(x, y, ax, 2, edgecolor='fuchsia', linestyle='--')
+        add_confidence_ellipse(x, y, ax, 3, edgecolor='blue', linestyle=':')
 
 
 
-    plt.show()
+        plt.show()
